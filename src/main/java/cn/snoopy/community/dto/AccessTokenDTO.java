@@ -1,6 +1,6 @@
 package cn.snoopy.community.dto;
 
-public class AccesstokenDTO {
+public class AccessTokenDTO {
     private String client_id;
     private String client_secret;
     private String code;

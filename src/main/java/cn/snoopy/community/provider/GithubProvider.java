@@ -1,6 +1,8 @@
 package cn.snoopy.community.provider;
 
-import cn.snoopy.community.dto.AccesstokenDTO;
+import cn.snoopy.community.dto.AccessTokenDTO;
+import cn.snoopy.community.dto.GithubUser;
+import com.alibaba.fastjson.JSON;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -8,19 +10,40 @@ import java.io.IOException;
 
 @Component
 public class GithubProvider {
-    public String getAccessToken(AccesstokenDTO accesstokenDTO) throws IOException {
-        MediaType JSON = MediaType.get("application/json; charset=utf-8");
+    public String getAccessToken(AccessTokenDTO accessTokenDTO) {
+        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
 
         OkHttpClient client = new OkHttpClient();
 
-        RequestBody body = RequestBody.create(JSON, json);
+        RequestBody body = RequestBody.create(mediaType,JSON.toJSONString(accessTokenDTO));
         Request request = new Request.Builder()
                 .url("https://github.com/login/oauth/access_token")
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {
-                return response.body().string();
+                String string = response.body().string();
+            String[] split = string.split("&");
+            String[] split1 = split[0].split("=");
+            String token = split1[1];
+            /*System.out.println(string);
+                return string;*/
+            return token;
+        }catch (IOException e){
         }
             return null;
+    }
+    public GithubUser getUser(String accesstoken){
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://api.github.com/user?access_token="+accesstoken)
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+            String string = response.body().string();
+            GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
+            return githubUser;
+        } catch (IOException e) {
+        }
+        return null;
     }
 }
