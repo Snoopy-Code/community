@@ -9,3 +9,17 @@
 
 ##工具
 [git下载](https://git-scm.com/downloads)
+
+##脚本
+```sql
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `accountId` varchar(100) DEFAULT NULL,
+  `token` char(36) DEFAULT NULL,
+  `gmtCreate` bigint(20) DEFAULT NULL,
+  `gmtModified` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
+
+```
