@@ -20,6 +20,7 @@ CREATE TABLE `user` (
   `token` char(36) DEFAULT NULL,
   `gmtCreate` bigint(20) DEFAULT NULL,
   `gmtModified` bigint(20) DEFAULT NULL,
+  `bio` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
 
