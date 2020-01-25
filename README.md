@@ -25,3 +25,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
 
 ```
+```sql
+create table question
+(
+	id int auto_increment,
+	title varchar(50) null,
+	description text null,
+	gmtCreate bigint null,
+	gmtModified bigint null,
+	creator int null,
+	commentCount int default 0 null,
+	viewCount int default 0 null,
+	likeCount int default 0 null,
+	tag varchar(256) null,
+	constraint question_pk
+		primary key (id)
+);
+```
