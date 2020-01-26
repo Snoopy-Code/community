@@ -26,19 +26,17 @@ CREATE TABLE `user` (
 
 ```
 ```sql
-create table question
-(
-	id int auto_increment,
-	title varchar(50) null,
-	description text null,
-	gmtCreate bigint null,
-	gmtModified bigint null,
-	creator int null,
-	commentCount int default 0 null,
-	viewCount int default 0 null,
-	likeCount int default 0 null,
-	tag varchar(256) null,
-	constraint question_pk
-		primary key (id)
-);
+CREATE TABLE `question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) DEFAULT NULL,
+  `description` text,
+  `gmtCreate` bigint(20) DEFAULT NULL,
+  `gmtModified` bigint(20) DEFAULT NULL,
+  `creator` int(11) DEFAULT NULL,
+  `commentCount` int(11) DEFAULT '0',
+  `viewCount` int(11) DEFAULT '0',
+  `likeCount` int(11) DEFAULT '0',
+  `tag` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8
 ```
