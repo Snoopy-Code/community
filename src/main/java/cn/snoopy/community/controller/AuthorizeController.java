@@ -52,9 +52,9 @@ public class AuthorizeController {
             User user = new User();
             String token = UUID.randomUUID().toString();
             user.setToken(token);
-            user.setAccountid(String.valueOf(githubUser.getId()));
+            user.setAccountId(String.valueOf(githubUser.getId()));
             user.setName(githubUser.getName());
-            user.setAvatarurl(githubUser.getAvatarUrl());
+            user.setAvatarUrl(githubUser.getAvatarUrl());
             userService.CreateOrUpdate(user);
             response.addCookie(new Cookie("token",token));
             //登陆成功，写cookie和session
