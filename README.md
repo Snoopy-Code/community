@@ -40,3 +40,19 @@ CREATE TABLE `question` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8
 ```
+```sql
+CREATE TABLE `comment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `parent_id` bigint(20) NOT NULL COMMENT '问题的id',
+  `type` int(11) NOT NULL COMMENT '父类类型，一级二级回复枚举',
+  `commentator` int(11) NOT NULL COMMENT '评论人id',
+  `gmt_create` bigint(20) NOT NULL COMMENT '评论时间',
+  `gmt_modified` bigint(20) NOT NULL COMMENT '更新时间',
+  `like_count` bigint(20) DEFAULT '0' COMMENT '点赞数',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+```
+
+```bash
+ mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+```
