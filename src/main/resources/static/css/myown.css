@@ -13,6 +13,9 @@ body{
     width: 40px;
     height: 40px;
 }
+.media-body{
+    padding-top: 10px;
+}
 .text-desc{
     font-size: 12px;
     font-weight: normal;
@@ -27,4 +30,61 @@ body{
 }
 .jumbotron{
     margin: 60px;
+}
+.comment{
+    margin: 10px 0 10px 0;
+}
+.comments{
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+/*margin确定上右下左距离*/
+.butstyle{
+    float: right;
+    margin-bottom: 10px;
+}
+.comment-sp{
+    margin-top: 0;
+}
+.menu{
+    color: #999;
+    margin-top: 5px;
+}
+.menu .icon{
+    margin-right: 6px;
+    font-size: 16px ;
+    cursor: pointer;
+}
+.menu .active{
+   color: #499ef3 ;
+}
+.menu .icon:hover{
+    color: #499ef3;
+}
+.question-title{
+    margin-top: 25px;
+}
+.secord-comment{
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.secord-comment .btn{
+    margin: 10px 0;
+}
+.question-tag{
+    margin-right: 5px;
+}
+.question-related{
+    font-size: 12px;
+    padding-left: 0;
+    list-style: none;
+    line-height: 25px;
+    margin-left: 0;
+}
+.wechat{
+    width: 100%;
 }
