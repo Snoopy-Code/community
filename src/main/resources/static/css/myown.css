@@ -88,3 +88,13 @@ body{
 .wechat{
     width: 100%;
 }
+.publish-tagtab{
+    margin-top: 10px;
+    display: none;
+    padding-top: 10px;
+}
+.publish-tagtab .label-info{
+    margin: 5px 5px;
+    white-space: normal;
+    display: inline-block;
+}

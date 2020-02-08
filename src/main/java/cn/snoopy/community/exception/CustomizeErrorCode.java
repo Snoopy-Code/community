@@ -7,7 +7,9 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     SYS_ERROR(2005,"服务冒烟了，要不然稍后再试一试！！！"),
     TYPE_PARAM_WRONG(2006,"评论类型错误或者不存在！"),
     COMMENT_NOT_FOUND(2007,"回复的评论不存在"),
-    CONTENT_IS_EMPTY(2008,"回复内容不能为空")
+    CONTENT_IS_EMPTY(2008,"回复内容不能为空"),
+    READ_RECEIVER_FAIL(2009,"不是你自己的信息啊，读错了吧亲？！"),
+    NOTIFY_NOT_FOUND(2010,"通知已经不在了，不早点来？！")
     ;
 
     private String message;

@@ -117,3 +117,19 @@ function responseComment(e) {
 
     }
 }
+function selectTag(e) {
+    var value = e.getAttribute("data-tag");
+    var previous = $("#tag").val();
+    //如果标签框里面没有其中的一个标签，那么再点击该标签就需要添加进去
+    if(previous.split(",").indexOf(value)==-1){
+        if(previous){
+            $("#tag").val(previous+","+value);
+        }else{
+            var previous = $("#tag").val(value);
+        }
+    }
+
+}
+function showTag() {
+    $("#select-tag").show();
+}

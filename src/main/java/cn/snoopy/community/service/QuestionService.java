@@ -65,7 +65,7 @@ public class QuestionService {
             questionDTO.setUser(user);
             questionDTOList.add(questionDTO);
         }
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
 
         return paginationDTO;
     }
@@ -92,6 +92,7 @@ public class QuestionService {
         Integer offset = size * (page-1);
         QuestionExample example = new QuestionExample();
         example.createCriteria().andCreatorEqualTo(userId);
+        example.setOrderByClause("gmt_create desc");
         List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(example,new RowBounds(offset,size));
 //        List<Question> questions = questionMapper.listByUserId(userId,offset,size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
@@ -102,7 +103,7 @@ public class QuestionService {
             questionDTO.setUser(user);
             questionDTOList.add(questionDTO);
         }
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
         return paginationDTO;
     }
 
