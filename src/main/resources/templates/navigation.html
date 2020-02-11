@@ -6,18 +6,18 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">麻将社区</span>
+                    <span class="sr-only">Snoopy社区</span>
                 </button>
-                <a class="navbar-brand" href="/">麻将社区</a>
+                <a class="navbar-brand" href="/">Snoopy社区</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left">
+               <!-- <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="搜索问题">
                     </div>
                     <button type="submit" class="btn btn-default">搜索</button>
-                </form>
+                </form>-->
                 <ul class="nav navbar-nav navbar-right">
                     <li th:if="${session.user != null}">
                         <a href="/publish">提问</a>

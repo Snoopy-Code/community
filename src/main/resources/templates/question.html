@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/myown.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/editormd/css/editormd.preview.min.css"/>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script><!--这里路径要加上/根目录，因为这里profile/questions是二级目录，不是同一级了-->
     <script src="/js/moment.js" type="application/javascript"></script>
     <script src="/js/community.js" type="application/javascript"></script>
-
+    <script src="/editormd/js/editormd.min.js" type="application/javascript"></script>
+    <script src="/editormd/lib/prettify.min.js" type="application/javascript"></script>
+    <script src="/editormd/lib/marked.min.js" type="application/javascript"></script>
 </head>
 <body>
 <div th:insert="navigation :: nav"></div>
@@ -24,10 +27,16 @@
                 作者：<span th:text="${question.user.name}"></span>
                 发布时间：<span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
                 阅读数：<span th:text="${question.viewCount}"></span>
-            </span>
+                </span>
                <hr>
-               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${question.description}">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="question-view">
+                   <textarea style="display:none;" th:text="${question.description}"></textarea>
                </div>
+               <script type="text/javascript">
+                   $(function() {
+                      editormd.markdownToHTML("question-view", {});
+                   });
+               </script>
                <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                    <span class="label label-info question-tag" th:each="tag : ${question.tag.split(',')}">
@@ -98,12 +107,12 @@
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object img-rounded" th:src="${question.user.avatarUrl}">
+                            <img class="media-object img-rounded" th:src="${session.user!=null?session.user.avatarUrl:'/img/default-pic.png'}">
                         </a>
                     </div>
                     <div class="media-body">
                         <h5 class="media-heading">
-                            <span th:text="${question.user.name}"></span>
+                            <span th:text="${session.user!=null?session.user.name:'匿名用户'}"></span>
                         </h5>
                         </span>
                     </div>
@@ -127,7 +136,6 @@
                         <h5 class="media-heading">
                             <span th:text="${question.user.name}"></span>
                         </h5>
-                    </span>
                     </div>
             </div>
                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -148,5 +156,6 @@
         </div>
     </div>
 </div>
+    <div th:insert="footer :: foot"></div>
 </body>
 </html>

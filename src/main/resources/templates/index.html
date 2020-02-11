@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>麻将社区</title>
+    <title>Snoopy社区</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -70,9 +70,13 @@
             </nav>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>热门话题</h3>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h4>社区管理人微信</h4>
+                <img class="img-thumbnail wechat" src="/img/WeChat.PNG">
+            </div>
         </div>
     </div>
 </div>
+<div th:insert="footer :: foot"></div>
 </body>
 </html>
